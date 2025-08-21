@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lassi Valley - Buransh Lassi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: #ffb800;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin: 0;
+            color: #fff;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 20px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #ff6347;
+        }
+
+        /* Product Detail Page Styles */
+        .product-detail-hero {
+            background-color: #fef8f3;
+            padding: 80px 20px;
+        }
+
+        .product-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-details {
+            text-align: left;
+        }
+
+        .product-details h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff6347;
+        }
+
+        .product-details .price {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #d2691e;
+            margin-bottom: 20px;
+        }
+
+        .product-details .description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .add-to-cart-btn {
+            display: inline-block;
+            background-color: #ff6347;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #e5533d;
+        }
+        
+        /* General Section & Heading Styles */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: #ff6347;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-color: #f7f7f7;
+            padding-top: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h3 {
+            color: #d2691e;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Recipe Section */
+        .recipe-section {
+            padding-top: 60px;
+        }
+
+        .recipe-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .recipe-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .recipe-content ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .recipe-content li {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .recipe-content li strong {
+            color: #ff6347;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-info-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-details {
+                text-align: center;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Lassi Valley</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-detail-hero">
+            <div class="container">
+                <div class="product-info-grid">
+                    <div class="product-image">
+                        <img src="buransh.jpg" alt="Buransh Lassi">
+                    </div>
+                    <div class="product-details">
+                        <h2>Buransh Lassi</h2>
+                        <p class="price">Price: ₹95</p>
+                        <p class="description">
+                            Experience the unique flavor and health benefits of the Himalayas with our Buransh Lassi,
+                            made from the vibrant red flowers of the Rhododendron tree.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="benefits-section">
+            <div class="container">
+                <h2>Health Benefits of Buransh</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Rich in Antioxidants</h3>
+                        <p>Buransh is a powerhouse of antioxidants that fight free radicals, reduce inflammation, and promote overall well-being.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Heart Health</h3>
+                        <p>Compounds in the Buransh flower can help in regulating blood pressure and cholesterol levels, supporting a healthy heart.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Aids Digestion</h3>
+                        <p>The anti-inflammatory properties of Buransh can soothe digestive issues and improve nutrient absorption.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Natural Immunity Booster</h3>
+                        <p>Packed with Vitamin C, it helps to strengthen the body's defenses against infections and illnesses.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Good for Skin</h3>
+                        <p>Antioxidants present in the flower combat skin aging, blemishes, and acne, giving you a natural, healthy glow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recipe-section">
+            <div class="container">
+                <h2>The Traditional Indian Method</h2>
+                <div class="recipe-content">
+                    <p>Our Buransh Lassi is prepared using a time-honored recipe that captures the essence of this Himalayan flower. While the exact proportions are a secret, the traditional method involves these steps:</p>
+                    <ol>
+                        <li><strong>Flower Harvest:</strong> The vibrant red Buransh flowers are hand-picked from the high-altitude forests of the Himalayas during their peak blooming season.</li>
+                        <li><strong>Extract Preparation:</strong> The petals are carefully separated and a fresh juice or squash is prepared by boiling them with a small amount of water and natural sweeteners.</li>
+                        <li><strong>The Lassi Base:</strong> A thick, creamy, and fresh curd (dahi) is churned using a traditional wooden churner (madani) until it becomes smooth and frothy.</li>
+                        <li><strong>Blending the Flavors:</strong> The freshly made Buransh extract is blended with the yogurt, along with a hint of cardamom and a touch of roasted cumin, creating a unique sweet and savory profile.</li>
+                        <li><strong>Chilled to Perfection:</strong> The lassi is served chilled, offering a refreshing and cooling experience that is both healthy and delicious.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Lassi Valley. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
